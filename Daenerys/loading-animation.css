@@ -1,0 +1,80 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+}
+body {
+  font-family: 'Roboto Condensed', sans-serif;
+  height: 100%;
+}
+.loading-container {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 350px;
+  height: 100px;
+  background: linear-gradient(0deg, #222 0, #444 100%);
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  grid-template-rows: 1fr;
+  column-gap: 1px;
+  color: #FFF;
+}
+.loading-container::after {
+  content: "";
+  position:absolute;
+  width: 100%;
+  height: 100%;
+  z-index: 2;
+  box-shadow: 0 5px 20px 0 inset #000 ;
+}
+.loading-container span {
+  background: linear-gradient(180deg, #222 0, #444 100%);
+  font-size: 40px;
+  text-align: center;
+  padding-top: 35px;
+  text-shadow: 5px 5px 5px #222;
+  position: relative;
+}
+.loading-container span::after {
+  content: '';
+  background: linear-gradient(180deg, white 0, #ddd 100%);
+  position:absolute;
+  top: 0;
+  left: 0;
+  z-index: 3;
+  width: calc(100% + 1px);
+  height: 100%;
+  animation-name: up;
+  animation-duration: 2s;
+  animation-iteration-count: infinite;
+}
+@keyframes up {
+  0% {
+    height: 100%;
+  }
+  50% {
+    height: 25%;
+  }
+  100% {
+    height: 100%;
+  }
+}
+.loading-container .span-O::after {
+  animation-delay: .142857s;
+}
+.loading-container .span-A::after {
+  animation-delay: .285714s;
+}
+.loading-container .span-D::after {
+  animation-delay: .428571s; 
+}
+.loading-container .span-I::after {
+  animation-delay: .571428s;
+}
+.loading-container .span-N::after {
+  animation-delay: .714285s;
+}
+.loading-container .span-G::after {
+  animation-delay: .857142s
+}

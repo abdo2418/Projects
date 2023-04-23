@@ -1,0 +1,267 @@
+:root {
+  --myColor: black;
+  --myFontSize: 14px;
+}
+* {
+  box-sizing: border-box;
+}
+body {
+  background-color: var(--myColor, black);
+}
+.parent {
+  width: 85%;
+  height: 85%;
+  margin: 150px auto;
+  cursor: pointer;
+  background-color: var(--myColor, black);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 40% 80%;
+  background-image: url(images/got.png);
+  border-radius: 6px;
+  transition: box-shadow 0.6s 0s ease;
+}
+.parent:hover {
+  box-shadow: 0 0 56px 10px #fdac32, 0 0 9px 0px #fdac32 inset;
+}
+.clear {
+  clear: both;
+}
+.first,
+.third,
+.fifth,
+.seventh,
+.ninth {
+  float: left;
+  background-color: var(--myColor, black);
+  width: 30%;
+  height: 35px;
+  margin-right: 18%;
+  margin-left: 2%;
+  margin-top: 1.5%;
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: right top;
+  position: relative;
+}
+.second,
+.fourth,
+.sixth,
+.eighth,
+.tenth {
+  float: left;
+  background-color: var(--myColor, black);
+  width: 30%;
+  height: 35px;
+  margin-left: 18%;
+  margin-right: 2%;
+  margin-top: 1.5%;
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: left top;
+  position: relative;
+}
+
+.first {
+  background-image: url(images/targaryen.png);
+}
+.second {
+  background-image: url(images/stark.png);
+}
+.third {
+  background-image: url(images/baratheon.png);
+}
+.fourth {
+  background-image: url(images/lannister.png);
+}
+.fifth {
+  background-image: url(images/arryn.png);
+}
+.sixth {
+  background-image: url(images/greyjoy.png);
+}
+.seventh {
+  background-image: url(images/tully.png);
+}
+.eighth {
+  background-image: url(images/martell.png);
+}
+.ninth {
+  background-image: url(images/tyrell.png);
+  margin-bottom: 10px;
+}
+.tenth {
+  background-image: url(images/nights-watch.png);
+}
+.one,
+.three,
+.five,
+.seven,
+.nine {
+  background-color: var(--myColor, black);
+  width: 100%;
+  height: 100%;
+}
+.two,
+.four,
+.six,
+.eight,
+.ten {
+  background-color: var(--myColor, black);
+  width: 100%;
+  height: 100%;
+}
+.parent:hover .first .one,
+.parent:hover .third .three,
+.parent:hover .fifth .five,
+.parent:hover .seventh .seven,
+.parent:hover .ninth .nine {
+  width: 84%;
+  border: 1px solid #f1e592;
+}
+.parent:hover .second .two,
+.parent:hover .fourth .four,
+.parent:hover .sixth  .six,
+.parent:hover .eighth .eight,
+.parent:hover .tenth .ten {
+  width: 84%;
+  margin-left: 16%;
+  border: 1px solid #f1e592;
+}
+.parent:hover .first .one::after {
+  content: "Targaryen Family";
+  font-weight: bold;
+  color: white;
+  font-size: var(--myFontSize);
+  position: absolute;
+  top: 10px;
+  left: 50px;
+}
+.parent:hover .second .two::after {
+  content: "Stark Family";
+  font-weight: bold;
+  color: white;
+  font-size: var(--myFontSize);
+  position: absolute;
+  top: 10px;
+  right: 65px;
+}
+.parent:hover .third .three::after {
+  content: "Baratheon Family";
+  font-weight: bold;
+  color: white;
+  font-size: var(--myFontSize);
+  position: absolute;
+  top: 10px;
+  left: 50px;
+}
+.parent:hover .fourth .four::after {
+  content: "Lannister Family";
+  font-weight: bold;
+  color: white;
+  font-size: var(--myFontSize);
+  position: absolute;
+  top: 10px;
+  right: 46px;
+}
+.parent:hover .fifth .five::after {
+  content: "Arryn Family";
+  font-weight: bold;
+  color: white;
+  font-size: var(--myFontSize);
+  position: absolute;
+  top: 10px;
+  left: 50px;
+}
+.parent:hover .sixth .six::after {
+  content: "Greyjoy Family";
+  font-weight: bold;
+  color: white;
+  font-size: var(--myFontSize);
+  position: absolute;
+  top: 10px;
+  right: 46px;
+}
+.parent:hover .seventh .seven::after {
+  content: "Tully Family";
+  font-weight: bold;
+  color: white;
+  font-size: var(--myFontSize);
+  position: absolute;
+  top: 10px;
+  left: 50px;
+}
+.parent:hover .eighth .eight::after {
+  content: "Martell Family";
+  font-weight: bold;
+  color: white;
+  font-size: var(--myFontSize);
+  position: absolute;
+  top: 10px;
+  right: 46px;
+}
+.parent:hover .ninth .nine::after {
+  content: "Tyrell Family";
+  font-weight: bold;
+  color: white;
+  font-size: var(--myFontSize);
+  position: absolute;
+  top: 10px;
+  left: 50px;
+}
+.parent:hover .tenth .ten::after {
+  content: "Nights Watch";
+  font-weight: bold;
+  color: white;
+  font-size: var(--myFontSize);
+  position: absolute;
+  top: 10px;
+  right: 46px;
+}
+.one {
+  transition: all 0.5s 0.5s ease;
+}
+.two {
+  transition: all 0.5s 1s ease;
+}
+.three {
+  transition: all 0.5s 1.5s ease;
+}
+.four {
+  transition: all 0.5s 2s ease;
+}
+.five {
+  transition: all 0.5s 2.5s ease;
+}
+.six {
+  transition: all 0.5s 3s ease;
+}
+.seven {
+  transition: all 0.5s 3.5s ease;
+}
+.eight {
+  transition: all 0.5s 4s ease;
+}
+.nine {
+  transition: all 0.5s 4.5s ease;
+}
+.ten {
+  transition: all 0.5s 5s ease;
+}
+audio {
+  background-color: var(--myColor, black);
+  opacity: 0;
+}
+audio:hover {
+  opacity: 0.5;
+}
+audio:hover::-webkit-media-controls-panel {
+  background-color: rgb(31, 30, 30);
+  box-shadow: 0 0 10px 3px var(--myColor, black) inset,
+  0 0 10px 3px var(--myColor, black);
+}
+/* 
+Frist Data : October-25th-2022
+Last Data : October-25th-2022
+By : Abdelrhamn Osama Rashed
+*/

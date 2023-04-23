@@ -1,0 +1,140 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+}
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-image: linear-gradient( #171779 ,#0e0e3f ,#171769);
+  height: 100%;
+}
+.container {
+  position: absolute;
+  top: 30%;
+  left: 50%;
+  width: 300px;
+  height: 400px;
+  transform: translate(-50%, -50%);
+  perspective: 500px;
+  overflow: hidden;
+}
+.box {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transform-style: preserve-3d;
+  color: white;
+  font-size: 20px;
+  transition-duration: 1.5s;
+}
+.box:hover {
+  transform: rotateX(-180deg);
+}
+.card {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border-radius: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #131b33;
+  backface-visibility: hidden;
+}
+.card.back {
+  transform: rotateX(180deg);
+}
+img {
+  width: 95%;
+  height: 95%;
+}
+/* Top Line */
+.top  {
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 2px;
+  background-image: linear-gradient( 90deg , transparent , #00ccff  );
+  animation-name: top-line;
+  animation-duration: 2s;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+}
+@keyframes top-line {
+  0% {
+    left: -100%;
+  }
+  100% {
+    left: 100%;
+  }
+}
+/* Right Line */
+.face::after {
+  content: '';
+  position: absolute;
+  right: 0;
+  top: -100%;
+  width: 2px;
+  height: 100%;
+  background-image: linear-gradient( 180deg , transparent , #00ccff  );
+  animation-name: right-line;
+  animation-duration: 2s;
+  animation-delay: 1s;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+}
+@keyframes right-line {
+  0% {
+    top: -100%;
+  }
+  100% {
+    top: 100%;
+  }
+}
+/* Bottom Line */
+.bottom {
+  position: absolute;
+  bottom: 0;
+  right: -100%;
+  width: 100%;
+  height: 2px;
+  background-image: linear-gradient( 270deg , transparent , #00ccff);
+  animation-name: bottom-line;
+  animation-duration: 2s;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+}
+@keyframes bottom-line {
+  0% {
+    right: -100%;
+  }
+  100% {
+    right: 100%;
+  }
+}
+/* Left Line */
+.face::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -100%;
+  width: 2px;
+  height: 100%;
+  background-image: linear-gradient(360deg , transparent, #00ccff);
+  animation-name: left-line;
+  animation-duration: 2s;
+  animation-delay: 1s;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+}
+@keyframes left-line {
+  0% {
+    bottom: -100%;
+  }
+  100% {
+    bottom: 100%;
+  }
+}
+

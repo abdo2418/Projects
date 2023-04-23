@@ -1,0 +1,781 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+:root {
+  --legsColor: #000000;
+  --legsDuration: 300ms;
+  --legsTimeFounction: ease-in-out;
+}
+body {
+  width: 1450.25px;
+  font-family: Arial, Helvetica, sans-serif;
+  height: 100vh;
+  overflow: hidden;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-image: linear-gradient(0deg,
+  rgba(244,109,14,1) 0%,
+  rgba(138,67,38,1) 4%,
+  rgba(115,58,43,1) 10%,
+  rgba(90,48,49,1) 16%,
+  rgba(63,37,55,1) 28%,
+  rgba(29,23,63,1) 75%);
+}
+/* Halloween pumpkin */
+.pumpkin > img {
+  position: absolute;
+  width: 60px;
+  height: 60px;
+}
+/* Left pumpkin */
+.pumpkin > img:first-of-type {
+  bottom: 0;
+}
+/* Left Fire */
+.pumpkin > div:first-of-type::before {
+  content: '';
+  width: 1px;
+  height: 1px;
+  position: absolute;
+  bottom: 5px;
+  left: 40px;
+  box-shadow: 0px 0px 100px 40px #f4df71;
+  background-color: transparent;
+  animation: fire 1s infinite ease-in-out alternate;
+} 
+@keyframes fire {
+  0% {
+    box-shadow: 0px -10px 100px 30px #f4df71;
+  }
+  100% {
+    box-shadow: 0px -10px 100px 50px #f4df71 ;
+  }
+}
+/* Right pumpkin */
+.pumpkin > img:last-of-type {
+  bottom: 0;
+  right: 0;
+}
+/* Right fire */
+.pumpkin > div:first-of-type::after {
+  content: '';
+  width: 1px;
+  height: 1px;
+  position: absolute;
+  bottom: 5px;
+  right: 40px;
+  box-shadow: 0px 0px 100px 40px #f4df71;
+  background-color: transparent;
+  animation: fire 1s infinite ease-in-out alternate;
+} 
+/* up-photo-spider */
+.up-photo > img{
+  width: 60px;
+}
+.up-photo > img:first-of-type {
+  position: absolute;
+  top: 0;
+  left: 1%;
+}
+.up-photo > img:last-of-type {
+  position: absolute;
+  top: 0;
+  right: 1%;
+}
+/* Loading word */
+div.loading {
+  font-size: 100px;
+  font-weight: bold;
+  text-transform: uppercase;
+  color: rgba(0, 0, 0, 0.178);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  cursor: context-menu;
+  text-align: center;
+}
+/* Mobile for Loading */
+@media (max-width: 767px) {
+  div.loading {
+    letter-spacing: 10px;
+  }
+}
+/* Small screen for Loading */
+@media (min-width: 768px) {
+  div.loading {
+    letter-spacing: 25px;
+  }
+  }
+/* Medium screen for Loading */
+@media (min-width: 992px) {
+  div.loading {
+    letter-spacing: 45px;
+  }
+  }
+/* Medium screen and a few size for Loading */
+@media (min-width: 1100px) {
+  div.loading {
+    letter-spacing: 50px;
+  }
+  }
+/* Large screen for Loading */
+@media (min-width: 1200px) {
+  div.loading {
+    letter-spacing: 60px;
+  }
+}
+/* Very Large screen for Loading */
+@media (min-width: 1300px) {
+  div.loading {
+    letter-spacing: 80px;
+    font-size: 110px;
+  }
+}
+/* Extremely Large screen for Loading */
+@media (min-width: 1500px) {
+  div.loading {
+    letter-spacing: 100px;
+    font-size: 110px;
+  }
+}
+div.loading::before {
+  content: "Loading...";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 0%;
+  height: 100%;
+  text-shadow: 0 0 25px red;
+  color: red;
+  -webkit-text-stroke: 5px rgb(139, 0, 0);
+  overflow: hidden;
+  animation: loading-red 2s linear infinite alternate;
+}
+@keyframes loading-red {
+  0% ,15% {
+    width: 0;
+  }
+  85% , 100%{
+    width: 100%;
+  }
+}
+/* Spider Body */
+.spider {
+  position: absolute;
+  top: 50%;
+  left: -20%;
+  transform: translate(-50%, -50%) rotate(-90deg);
+  animation: moving-spider 4s infinite linear;
+}
+@keyframes moving-spider {
+  0%{
+    left: -20%;
+    transform: translate(-50%, -50%) rotate(-90deg);
+  }
+  50%{
+    left: 120%;
+    transform: translate(-50%, -50%) rotate(-90deg);
+  }
+  51% {
+    left: 120%;
+    transform: translate(-50%, -50%) rotate(90deg);
+  }
+  100%{
+    left: -20%;
+    transform: translate(-50%, -50%) rotate(90deg);
+  }
+}
+
+/* Back */
+.back  {
+  position: relative;
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  background-color: black;
+  background-image: url(https://i.ibb.co/ZBT2cHG/back-image.png);
+  background-size: contain;
+  background-repeat: no-repeat;
+  animation: spider-back 300ms infinite alternate linear;
+  z-index: 2;
+}
+
+@keyframes spider-back {
+  0%{
+    background-position: -7px -15px;
+  }
+  100%{
+    background-position: 13px -15px;    
+  }
+}
+/* Head */
+.head {
+  width: 60%;
+  height: 60%;
+  border-radius: 100% 0% 60% 60% / 0% 0% 100% 100% ;
+  background-color: black;
+  position: absolute;
+  bottom: -35%;
+  left: 20%;
+}
+/* Eyes */
+.head::after {
+  content: '';
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  position: absolute;
+  bottom: 10px;
+  left: 25px;
+  background-color: rgb(238, 191, 191);
+  box-shadow: 0 0 10px 5px rgb(236, 61, 61), 
+  0 0 10px 6px red;
+  z-index: 3;
+}
+.head::before {
+  content: '';
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  position: absolute;
+  bottom: 10px;
+  right: 25px;
+  background-color: rgb(238, 191, 191);
+  box-shadow: 0 0 10px 5px rgb(236, 61, 61),
+  0 0 10px 6px red;
+  z-index: 3;
+}
+/* tusk */
+.head > div.tusk {
+  position: absolute;
+  width: 35px;
+  height: 35px;
+  bottom: -30px;
+  left: 19px;
+  background-image: url(https://i.ibb.co/98xwjR5/spider-tusk.png);
+  background-size: 100% 100%;    
+  background-repeat: no-repeat;
+}
+/* Legs */
+/* Frist leg bottom form the left */
+.head > span:nth-of-type(1) {
+  width: 9px;
+  height: 60px;
+  border-radius: 50% 50% 80% 80% / 10% 15% 15% 10%;
+  background-color: var(--legsColor, black);
+  transform-origin: 50% 100%;
+  transform: rotate(280deg);
+  position: absolute;
+  top: -40px;
+  left: 15px;
+  animation: f-leg-bottom-bottom var(--legsDuration) infinite alternate var(--legsTimeFounction) ;
+}
+@keyframes f-leg-bottom-bottom {
+  0%{
+    transform: rotate(280deg);
+  }
+  100% {
+    transform: rotate(305deg);
+  }
+}
+.head > span:nth-of-type(1) > span:nth-child(1) {
+  width: 7px;
+  height: 60px;
+  border-radius: 50% 50% 50% 50% / 10% 15% 15% 10%;
+  background-color: var(--legsColor, black);
+  position: absolute;
+  top: -58px;
+  left: -2px;
+  transform-origin: 50% 100%;
+  transform: rotate(54deg);
+  animation: f-leg-bottom-middle var(--legsDuration) infinite alternate-reverse var(--legsTimeFounction);
+}
+@keyframes f-leg-bottom-middle {
+  0% {
+    height: 60px;
+    top: -58px;
+    transform: rotate(54deg);
+  }
+  100% {
+    height: 80px;
+    top: -78px;
+    transform: rotate(22deg);
+  }
+}
+.head > span:nth-of-type(1) > span:nth-child(1) > span:nth-child(1) {
+  width: 5px;
+  height: 12px;
+  border-radius: 50% 50% 50% 50% / 10% 15% 15% 10%;
+  background-color: var(--legsColor, black);
+  position: absolute;
+  top: -11px;
+  left: 2px;
+  transform-origin: 50% 100%;
+  transform: rotate(113deg) skewY(64deg);
+  animation: f-leg-bottom-top var(--legsDuration) infinite alternate-reverse var(--legsTimeFounction);
+}
+@keyframes f-leg-bottom-top {
+  0% {
+    height: 12px;
+    top: -14px;
+    transform: rotate(113deg) skewY(64deg);
+  }
+  100%{
+    height: 42px;
+    top : -31px;
+    transform: rotate(15deg) skewY(64deg);
+  }
+}
+/* Frist leg top from the left */
+.head > span:nth-of-type(2) {
+  width: 9px;
+  height: 60px;
+  border-radius: 50% 50% 80% 80% / 10% 15% 15% 10%;
+  background-color: var(--legsColor, black);
+  transform-origin: 50% 100%;
+  transform: rotate(-280deg);
+  position: absolute;
+  top: -40px;
+  right: 15px;
+  animation: f-leg-top-bottom var(--legsDuration) infinite alternate-reverse var(--legsTimeFounction) ;
+}
+@keyframes f-leg-top-bottom {
+  0%{
+    transform: rotate(-280deg);
+  }
+  100% {
+    transform: rotate(-305deg);
+  }
+}
+.head > span:nth-of-type(2) > span:nth-child(1) {
+  width: 7px;
+  height: 60px;
+  border-radius: 50% 50% 50% 50% / 10% 15% 15% 10%;
+  background-color: var(--legsColor, black);
+  position: absolute;
+  top: -58px;
+  right: -2px;
+  transform-origin: 50% 100%;
+  transform: rotate(-54deg);
+  animation: f-leg-top-middle var(--legsDuration) infinite alternate var(--legsTimeFounction);
+}
+@keyframes f-leg-top-middle {
+  0% {
+    height: 60px;
+    top: -58px;
+    transform: rotate(-54deg);
+  }
+  100% {
+    height: 80px;
+    top: -78px;
+    transform: rotate(-22deg);
+  }
+}
+.head > span:nth-of-type(2) > span:nth-child(1) > span:nth-child(1) {
+  width: 5px;
+  height: 12px;
+  border-radius: 50% 50% 50% 50% / 10% 15% 15% 10%;
+  background-color: var(--legsColor, black);
+  position: absolute;
+  top: -11px;
+  right: 2px;
+  transform-origin: 50% 100%;
+  transform: rotate(-113deg) skewY(-64deg);
+  animation: f-leg-top-top var(--legsDuration) infinite alternate var(--legsTimeFounction);
+}
+@keyframes f-leg-top-top {
+  0% {
+    height: 12px;
+    top: -11px;
+    transform: rotate(-113deg) skewY(64deg);
+  }
+  100%{
+    height: 42px;
+    top : -31px;
+    transform: rotate(-15deg) skewY(64deg);
+  }
+}
+/* Second leg bottom form the left */
+.head > span:nth-of-type(3) {
+  width: 9px;
+  height: 60px;
+  border-radius: 50% 50% 80% 80% / 10% 15% 15% 10%;
+  background-color: var(--legsColor, black);
+  transform-origin: 50% 100%;
+  transform: rotate(280deg);
+  position: absolute;
+  top: -35px;
+  left: 10px;
+  animation: s-leg-bottom-bottom var(--legsDuration) infinite alternate var(--legsTimeFounction);
+}
+@keyframes s-leg-bottom-bottom {
+  0%{
+    transform: rotate(280deg);
+  }
+  100% {
+    transform: rotate(255deg);
+  }
+}
+.head > span:nth-of-type(3) > span:nth-child(1) {
+  width: 7px;
+  height: 60px;
+  border-radius: 50% 50% 50% 50% / 10% 15% 15% 10%;
+  background-color: var(--legsColor, black);
+  position: absolute;
+  top: -50px;
+  left: -2px;
+  transform-origin: 50% 100%;
+  transform: rotate(34deg);
+  animation: s-leg-bottom-middle var(--legsDuration) infinite alternate var(--legsTimeFounction);
+}
+@keyframes s-leg-bottom-middle {
+  0%{
+    left: -2px;
+    transform: rotate(34deg);
+  }
+  100%{
+    left: 2px;
+    transform: rotate(-10deg);
+  }
+}
+.head > span:nth-of-type(3) > span:nth-child(1) > span:nth-child(1) {
+  width: 5px;
+  height: 42px; 
+  border-radius: 50% 50% 50% 50% / 10% 15% 15% 10%;
+  background-color: var(--legsColor, black);
+  position: absolute;
+  top: -38px;
+  left: 2px;
+  transform-origin: 50% 100%;
+  transform: rotate(46deg) skewY(64deg) rotateX(70deg);
+  animation: s-leg-bottom-top var(--legsDuration) infinite alternate var(--legsTimeFounction);
+}
+@keyframes s-leg-bottom-top {
+  0%{
+    transform: rotate(46deg) skewY(64deg) rotateX(70deg);
+  }
+  100%{
+    transform: rotate(0deg) skewY(64deg) rotateX(0deg);
+  }
+}
+/* Second leg top form the left */
+.head > span:nth-of-type(4) {
+  width: 9px;
+  height: 60px;
+  border-radius: 50% 50% 80% 80% / 10% 15% 15% 10%;
+  background-color: var(--legsColor, black);
+  transform-origin: 50% 100%;
+  transform: rotate(-280deg);
+  position: absolute;
+  top: -35px;
+  right: 10px;
+  animation: s-leg-top-bottom var(--legsDuration) infinite alternate-reverse var(--legsTimeFounction);
+}
+@keyframes s-leg-top-bottom {
+  0%{
+    transform: rotate(-280deg);
+  }
+  100%{
+    transform: rotate(-255deg);
+  }
+}
+.head > span:nth-of-type(4) > span:nth-child(1) {
+  width: 7px;
+  height: 60px;
+  border-radius: 50% 50% 50% 50% / 10% 15% 15% 10%;
+  background-color: var(--legsColor, black);
+  position: absolute;
+  top: -50px;
+  right: -2px;
+  transform-origin: 50% 100%;
+  transform: rotate(-34deg);
+  animation: s-leg-top-middle var(--legsDuration) infinite alternate-reverse var(--legsTimeFounction);
+}
+@keyframes s-leg-top-middle {
+  0%{
+    right: -2px;
+    transform: rotate(-34deg);
+  }
+  100%{
+    right: 2px;
+    transform: rotate(10deg);
+  }
+}
+.head > span:nth-of-type(4) > span:nth-child(1) > span:nth-child(1) {
+  width: 5px;
+  height: 42px;
+  border-radius: 50% 50% 50% 50% / 10% 15% 15% 10%;
+  background-color: var(--legsColor, black);
+  position: absolute;
+  top: -38px;
+  right: 2px;
+  transform-origin: 50% 100%;
+  transform: rotate(-46deg) skewY(64deg) rotateX(-70deg);
+  animation: s-leg-top-top var(--legsDuration) infinite alternate-reverse var(--legsTimeFounction);
+}
+@keyframes s-leg-top-top {
+  0%{
+    transform: rotate(-46deg) skewY(64deg) rotateX(-70deg);
+  }
+  100%{
+    transform: rotate(-0deg) skewY(64deg) rotateX(0deg);
+  }
+}
+/* Third leg bottom form the left */
+.head > span:nth-of-type(5) {
+  width: 9px;
+  height: 60px;
+  border-radius: 50% 50% 80% 80% / 10% 15% 15% 10%;
+  background-color: var(--legsColor, black);
+  transform-origin: 50% 100%;
+  transform: rotate(250deg);
+  position: absolute;
+  top: -30px;
+  left: 10px;
+  animation: t-leg-bottom-bottom var(--legsDuration) infinite alternate var(--legsTimeFounction);
+}
+@keyframes t-leg-bottom-bottom {
+  0%{
+    transform: rotate(250deg);
+  }
+  100%{
+    transform: rotate(260deg);
+  }
+}
+.head > span:nth-of-type(5) > span:nth-child(1) {
+  width: 7px;
+  height: 60px;
+  border-radius: 50% 50% 50% 50% / 10% 15% 15% 10%;
+  background-color: var(--legsColor, black);
+  position: absolute;
+  top: -55px;
+  left: 2px;
+  transform-origin: 50% 100%;
+  transform: rotate(-35deg);
+  animation: t-leg-bottom-middle var(--legsDuration) infinite alternate var(--legsTimeFounction);
+}
+@keyframes t-leg-bottom-middle {
+  0%{
+    transform: rotate(-35deg);
+  }
+  100%{
+    transform: rotate(15deg);
+  }
+}
+.head > span:nth-of-type(5) > span:nth-child(1) > span:nth-child(1) {
+  width: 5px;
+  height: 42px;
+  border-radius: 50% 50% 50% 50% / 10% 15% 15% 10%;
+  background-color: var(--legsColor, black);
+  position: absolute;
+  top: -39px;
+  left: 2px;
+  transform-origin: 50% 100%;
+  transform: rotate(-15deg) skewY(-64deg) rotateX(0deg);
+  animation: t-leg-bottom-top var(--legsDuration) infinite alternate var(--legsTimeFounction);
+}
+@keyframes t-leg-bottom-top {
+  0%{
+    
+    transform: rotate(-15deg) skewY(-64deg) rotateX(0deg);
+  }
+  100%{
+    transform: rotate(-15deg) skewY(-64deg) rotateX(-70deg);
+  }
+}
+/* Third leg top form the left */
+.head > span:nth-of-type(6) {
+  width: 9px;
+  height: 60px;
+  border-radius: 50% 50% 80% 80% / 10% 15% 15% 10%;
+  background-color: var(--legsColor, black);
+  transform-origin: 50% 100%;
+  transform: rotate(-250deg);
+  position: absolute;
+  top: -30px;
+  right: 10px;
+  animation: t-leg-top-bottom var(--legsDuration) infinite alternate-reverse var(--legsTimeFounction);
+}
+@keyframes t-leg-top-bottom {
+  0%{
+    transform: rotate(-250deg);
+  }
+  100%{
+    transform: rotate(-260deg);
+  }
+}
+.head > span:nth-of-type(6) > span:nth-child(1) {
+  width: 7px;
+  height: 60px;
+  border-radius: 50% 50% 50% 50% / 10% 15% 15% 10%;
+  background-color: var(--legsColor, black);
+  position: absolute;
+  top: -55px;
+  right: 2px;
+  transform-origin: 50% 100%;
+  transform: rotate(35deg);
+  animation: t-leg-top-middle var(--legsDuration) infinite alternate-reverse var(--legsTimeFounction);
+}
+@keyframes t-leg-top-middle {
+  0%{
+    transform: rotate(35deg);
+  }
+  100%{
+    transform: rotate(-15deg);
+  }
+}
+.head > span:nth-of-type(6) > span:nth-child(1) > span:nth-child(1) {
+  width: 5px;
+  height: 42px;
+  border-radius: 50% 50% 50% 50% / 10% 15% 15% 10%;
+  background-color: var(--legsColor, black);
+  position: absolute;
+  top: -39px;
+  right: 2px;
+  transform-origin: 50% 100%;
+  transform: rotate(15deg) skewY(64deg) rotateX(0deg);
+  animation: t-leg-top-top var(--legsDuration) infinite alternate-reverse var(--legsTimeFounction);
+}
+@keyframes t-leg-top-top {
+  0%{
+    transform: rotate(15deg) skewY(64deg) rotateX(0deg);
+  }
+  100% {
+    transform: rotate(15deg) skewY(64deg) rotateX(70deg);
+  }
+}
+
+/* Fourth leg bottom from left */
+.head > span:nth-of-type(7) {
+  width: 9px;
+  height: 50px;
+  border-radius: 50% 50% 80% 80% / 10% 15% 15% 10%;
+  background-color: var(--legsColor, black);
+  transform-origin: 50% 100%;
+  transform: rotate(215deg);
+  position: absolute;
+  top: -13px;
+  left: 10px;
+  animation: fo-leg-bottom-bottom  var(--legsDuration) infinite alternate var(--legsTimeFounction);
+}
+@keyframes fo-leg-bottom-bottom {
+  0%{
+    transform: rotate(215deg);
+  }
+  100%{
+    transform: rotate(200deg);
+  }
+}
+.head > span:nth-of-type(7) > span:nth-child(1) {
+  width: 7px;
+  height: 50px;
+  border-radius: 50% 50% 50% 50% / 10% 15% 15% 10%;
+  background-color: var(--legsColor, black);
+  position: absolute;
+  top: -45px;
+  left: 2px;
+  transform-origin: 50% 100%;
+  transform: rotate(-5deg);
+  animation: fo-leg-bottom-middle  var(--legsDuration) infinite alternate var(--legsTimeFounction);
+}
+@keyframes fo-leg-bottom-middle {
+  0%{
+    height: 50px;
+    top: -45px;
+  }
+  100%{
+    height: 85px;
+    top: -80px;
+  }
+}
+.head > span:nth-of-type(7) > span:nth-child(1) > span:nth-child(1) {
+  width: 5px;
+  height: 42px;
+  border-radius: 50% 50% 50% 50% / 10% 15% 15% 10%;
+  background-color: var(--legsColor, black);
+  position: absolute;
+  top: -39px;
+  left: 2px;
+  transform-origin: 50% 100%;
+  transform: rotate(-15deg) skewY(-64deg) rotatex(80deg);
+  animation: fo-leg-bottom-top  var(--legsDuration) infinite alternate var(--legsTimeFounction);
+}
+@keyframes fo-leg-bottom-top {
+  0%{
+    transform: rotate(-15deg) skewY(-64deg) rotatex(80deg);
+  }
+  100%{
+    transform: rotate(0deg) skewY(-64deg) rotatex(0deg);
+  }
+}
+/* Fourth leg top from left */
+.head > span:nth-of-type(8) {
+  width: 9px;
+  height: 50px;
+  border-radius: 50% 50% 80% 80% / 10% 15% 15% 10%;
+  background-color: var(--legsColor, black);
+  transform-origin: 50% 100%;
+  transform: rotate(-215deg);
+  position: absolute;
+  top: -13px;
+  right: 10px;
+  animation: fo-leg-top-bottom  var(--legsDuration) infinite alternate-reverse var(--legsTimeFounction);
+}
+@keyframes fo-leg-top-bottom {
+  0%{
+    transform: rotate(-215deg);
+  }
+  100%{
+    transform: rotate(-200deg);
+  }
+}
+.head > span:nth-of-type(8) > span:nth-child(1) {
+  width: 7px;
+  height: 50px;
+  border-radius: 50% 50% 50% 50% / 10% 15% 15% 10%;
+  background-color: var(--legsColor, black);
+  position: absolute;
+  top: -45px;
+  right: 2px;
+  transform-origin: 50% 100%;
+  transform: rotate(5deg);
+  animation: fo-leg-top-middle  var(--legsDuration) infinite alternate-reverse var(--legsTimeFounction);
+}
+@keyframes fo-leg-top-middle {
+  0%{
+    height: 50px;
+    top: -45px;
+  }
+  100%{
+    height: 85px;
+    top: -80px;
+  }
+}
+.head > span:nth-of-type(8) > span:nth-child(1) > span:nth-child(1) {
+  width: 5px;
+  height: 42px;
+  border-radius: 50% 50% 50% 50% / 10% 15% 15% 10%;
+  background-color: var(--legsColor, black);
+  position: absolute;
+  top: -39px;
+  right: 2px;
+  transform-origin: 50% 100%;
+  transform: rotate(15deg) skewY(64deg) rotatex(80deg);
+  animation: fo-leg-top-top  var(--legsDuration) infinite alternate-reverse var(--legsTimeFounction);
+}
+@keyframes fo-leg-top-top {
+  0%{
+    transform: rotate(15deg) skewY(64deg) rotatex(80deg);
+  }
+  100%{
+    transform: rotate(0deg) skewY(64deg) rotatex(0deg);
+  }
+}
+/* 
+First Date: March-8-2023
+Last Date: March-12-2023
+By Abdelrhman Osama :')
+*/
