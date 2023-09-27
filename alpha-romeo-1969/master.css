@@ -178,23 +178,23 @@ body {
   content: '';
   width: .5px;
   height: .5px;
-  /* background-color: red; */
   position: absolute;
   top: 46%;
   left: 52%;
-  animation: light-car-headlight 200ms infinite linear alternate;
-  animation-play-state: paused;
 }
 .body-car > .right-car-headlight > span::after {
   content: '';
   width: .5px;
   height: .5px;
-  /* background-color: red; */
   position: absolute;
   top: 46%;
   right: 52%;
+}
+.body-car:hover > .left-car-headlight > span::after {
+  animation: light-car-headlight 200ms infinite linear alternate;
+}
+.body-car:hover > .right-car-headlight > span::after {
   animation: light-car-headlight 200ms 200ms infinite linear alternate;
-  animation-play-state: paused;
 }
 @keyframes light-car-headlight {
   0% {
@@ -203,11 +203,6 @@ body {
   100% {
     box-shadow: 0px 0px 79px 44px #fff;
   }
-}
-
-.body-car:hover > .right-car-headlight > span::after,
-.body-car:hover > .left-car-headlight > span::after {
-  animation-play-state: running;
 }
 /* Shapes */
 .container-shapes {
